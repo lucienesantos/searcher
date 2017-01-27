@@ -8,7 +8,7 @@ RSpec.describe Search, type: :model do
     it {is_expected.to validate_presence_of(:request_ip)}
   end
 
-  describe "#self.log" do
+  describe "#log" do
 
     context "There is no log for this content with this request uuid " do
 
@@ -42,6 +42,21 @@ RSpec.describe Search, type: :model do
         search = Search.find_by_request_uuid(request_uuid)
         expect(search.content).to eq("how do I start project")
       end
+    end
+  end
+
+  describe "#order_by_count" do
+    before do
+      FactoryGirl.create_list(:search, 50, content: "How do I signup")
+      FactoryGirl.create_list(:search, 25, content: "How do I cancel my subscription")
+      FactoryGirl.create_list(:search, 100, content: "How do I find my lost articles")
+    end
+
+    let(:expected_result) { {"How do I find my lost articles"=>100, "How do I signup"=>50, "How do I cancel my subscription"=>25} }
+
+    it "should return the searchs group by content and order by count"  do
+      searches = Search.order_by_count
+      expect(searches).to eq(expected_result)
     end
   end
 
