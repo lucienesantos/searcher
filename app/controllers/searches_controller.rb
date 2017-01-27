@@ -2,15 +2,11 @@ class SearchesController < ApplicationController
 
   def search
     SearchLogWorker.perform_async(params[:request_uuid], params[:content], request.remote_ip)
-    respond_to do |format|
-      format.html {render :nothing}
-      format.json {render json: {data: [], message: "No records found"} }
-    end
+    render json: {data: [], message: "No records found"}
   end
 
-  private
-    def search_params
-      params.require(:search).permit(:request_uuid, :content)
-    end
+  def index
+    @searches = Search.order_by_count
+  end
 
 end

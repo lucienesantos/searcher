@@ -1,0 +1,22 @@
+
+
+
+
+<h1>Searchs analytics</h1>
+ 
+<table>
+  <tr>
+    <th>Search</th>
+    <th>Count</th>
+  </tr>
+ 
+<% @searches.each do |search, count| %>
+  <tr>
+    <td><%= search %></td>
+    <td><%= count %></td>
+  </tr>
+<% end %>
+</table>
+ 
+<br>
+ 
