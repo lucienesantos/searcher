@@ -1,22 +1,31 @@
+<header class="search-content small">
+	<div class="content">
+		<h1 class="headline">Search statistics</h1>
+		
+	</div>
+</header>
 
-
-
-
-<h1>Searchs analytics</h1>
- 
-<table>
-  <tr>
-    <th>Search</th>
-    <th>Count</th>
-  </tr>
- 
-<% @searches.each do |search, count| %>
-  <tr>
-    <td><%= search %></td>
-    <td><%= count %></td>
-  </tr>
-<% end %>
-</table>
- 
-<br>
- 
+<section class="search-results">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table table-bordered table-striped data-table">
+					<thead>
+						<tr>
+							<th>Search content</th>
+							<th>Amount</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @searches.each do |search, count| %>
+						<tr>
+							<td><%= search %></td>
+							<td><%= count %></td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>		
+			</div>
+		</div>
+	</div>
+</section>

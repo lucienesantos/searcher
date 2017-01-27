@@ -32,6 +32,10 @@ body {
 	box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2);
 }
 
+.search-content.small {
+	height: 120px;
+}
+
 .search-content .headline {
 	font-size: 28px;
 	font-weight: 300;
@@ -105,9 +109,25 @@ section.no_results span {
 
 .analysis-link {
 	color: white;
+	font-size: 16px;
 }
 
 .analysis-link:hover {
+	color: white;
+	text-decoration: none;
+}
+
+.analysis-link:visited {
+	color: white;
+	text-decoration: none;
+}
+
+.analysis-link:active {
+	color: white;
+	text-decoration: none;
+}
+
+.analysis-link:link {
 	color: white;
 	text-decoration: none;
 }
@@ -121,4 +141,9 @@ footer {
 	-ms-flex: none;
 	flex: none;
 	background: #ffffff;
+}
+
+.search-results {
+	display: block;
+	margin-top: 25px;
 }

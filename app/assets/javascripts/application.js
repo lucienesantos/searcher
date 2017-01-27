@@ -15,4 +15,5 @@
 //= require helper
 //= require angular/app
 //= require angular/controllers/home-controller
+//= require data-table-init
 //= require_tree .
