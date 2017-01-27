@@ -10,22 +10,33 @@ RSpec.describe Search, type: :model do
 
   describe "#self.log" do
 
-    context "Many pause to digitize the search" do
+    context "There is no log for this content with this key " do
       request_uuid = "79c546b0-cbc6-4ea4-bf01-f79329bb0exx"
+      request_ip = "123"
+      content_one = "how do"
 
-      before do
-        request_ip = "123"
-
-        content_one = "how do"
-        content_two = "how do I"
-        content_tree = "how do I start project"
-
+      it "should create a log this search" do
         Search.log(request_uuid, content_one, request_ip)
-        Search.log(request_uuid, content_two, request_ip)
-        Search.log(request_uuid, content_tree, request_ip)
+        search = Search.find_by_request_uuid(request_uuid)
+        expect(search.content).to eq("how do")
       end
 
-      it "should return last content typed" do
+    end
+
+    context "There is log for this content with this key " do
+
+      request_uuid = "79c546b0-cbc6-4ea4-bf01-f79329bb0exx"
+      request_ip = "123"
+
+      before do
+        content_one = "how do"
+        Search.log(request_uuid, content_one, request_ip)
+      end
+
+      it "should update the log this search" do
+        content_two = "how do I start project"
+
+        Search.log(request_uuid, content_two, request_ip)
         search = Search.find_by_request_uuid(request_uuid)
         expect(search.content).to eq("how do I start project")
       end
