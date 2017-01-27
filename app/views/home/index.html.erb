@@ -1,5 +1,11 @@
-<div ng-controller="HomeCtrl" data-ng-init="init()">
-	<input ng-model="search.content" ng-model-options="{ debounce: 500 }">
-	<p>{{search.content}}</p>
-	<p>{{search.uuid}}</p>
+<div id=content>
+	<div ng-controller="HomeCtrl" data-ng-init="init()">
+		<input ng-model="search.content" ng-model-options="{ debounce: 500 }">
+		<p>{{message}}</p>
+	</div>
+
+	<a href="/analysis">Analiysis Searches</a>
+
 </div>
+
+
