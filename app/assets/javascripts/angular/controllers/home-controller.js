@@ -3,7 +3,7 @@ app.controller('HomeCtrl', ['$scope', '$http', function($scope, $http) {
   $scope.init = function() {
     $scope.search = {
       content: "",
-      uuid: generateUUID()
+      request_uuid: generateUUID()
     }
     $scope.watchText();
   };
@@ -16,19 +16,22 @@ app.controller('HomeCtrl', ['$scope', '$http', function($scope, $http) {
 
   $scope.proccessContentChange = function() {
     if ($scope.search.content == "") {
-      $scope.search.uuid = generateUUID();
+      $scope.search.request_uuid = generateUUID();
     } else {
       $scope.searchArticle();
     }
   };
 
   $scope.searchArticle = function() {
-    $http.get("/search", 
-      {content: $scope.search.content, uuid: $scope.search.uuid}).success(function(data) {
-        
-      }).error(function(data) {
-        
-      });
+    $http({
+      url: "/search.json",
+      method: "GET",
+      params: {content: $scope.search.content, request_uuid: $scope.search.request_uuid}
+    }).success(function(data) {
+      console.log(data);
+    }).error(function(data) {
+      console.log(data);
+    });
   };
  
 }]);
