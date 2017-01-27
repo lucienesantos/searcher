@@ -1,4 +1,4 @@
-app.controller('HomeCtrl', ['$scope', function($scope) {
+app.controller('HomeCtrl', ['$scope', '$http', function($scope, $http) {
 
   $scope.init = function() {
     $scope.search = {
@@ -18,7 +18,17 @@ app.controller('HomeCtrl', ['$scope', function($scope) {
     if ($scope.search.content == "") {
       $scope.search.uuid = generateUUID();
     } else {
+      $scope.searchArticle();
     }
+  };
+
+  $scope.searchArticle = function() {
+    $http.get("/search", 
+      {content: $scope.search.content, uuid: $scope.search.uuid}).success(function(data) {
+        
+      }).error(function(data) {
+        
+      });
   };
  
 }]);
