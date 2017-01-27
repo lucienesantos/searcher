@@ -15,6 +15,8 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
+gem 'sidekiq'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
@@ -25,7 +27,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails'
-  gem 'pry-rails', '~> 0.3.4'
+  gem 'byebug'
 end
 
 group :test do
