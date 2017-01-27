@@ -10,33 +10,35 @@ RSpec.describe Search, type: :model do
 
   describe "#self.log" do
 
-    context "There is no log for this content with this key " do
-      request_uuid = "79c546b0-cbc6-4ea4-bf01-f79329bb0exx"
-      request_ip = "123"
-      content_one = "how do"
+    context "There is no log for this content with this request uuid " do
 
-      it "should create a log this search" do
-        Search.log(request_uuid, content_one, request_ip)
+      let(:request_uuid) {"79c546b0-cbc6-4ea4-bf01-f79329bb0exx"}
+      let(:content) {"how do"}
+      let(:request_ip) {"127.0.0.1"}
+
+      it "should create a log for this search" do
+        Search.log(request_uuid, content, request_ip)
         search = Search.find_by_request_uuid(request_uuid)
         expect(search.content).to eq("how do")
       end
 
     end
 
-    context "There is log for this content with this key " do
+    context "There is log for this content with this request uuid " do
 
-      request_uuid = "79c546b0-cbc6-4ea4-bf01-f79329bb0exx"
-      request_ip = "123"
+      let(:request_uuid) {"79c546b0-cbc6-4ea4-bf01-f79329bb0exx"}
+      let(:request_ip) {"127.0.0.1"}
+      let(:content) {"how do"}
+
+      let(:content_update) {"how do I start project"}
 
       before do
-        content_one = "how do"
-        Search.log(request_uuid, content_one, request_ip)
+        Search.log(request_uuid, content, request_ip)
       end
 
       it "should update the log this search" do
-        content_two = "how do I start project"
 
-        Search.log(request_uuid, content_two, request_ip)
+        Search.log(request_uuid, content_update, request_ip)
         search = Search.find_by_request_uuid(request_uuid)
         expect(search.content).to eq("how do I start project")
       end
