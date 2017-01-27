@@ -1,11 +1,29 @@
-<div id=content>
-	<div ng-controller="HomeCtrl" data-ng-init="init()">
-		<input ng-model="search.content" ng-model-options="{ debounce: 500 }">
-		<p>{{message}}</p>
-	</div>
-
-	<a href="/analysis">Analiysis Searches</a>
-
+<div ng-controller="HomeCtrl" data-ng-init="init()">
+	<header class="search-content">
+		<div class="content">
+			<h1 class="headline">We want to help you, search for articles</h1>
+			<a class="pull-right analysis-link" href="/analysis">Analysis Searches</a>
+			<div>
+				<input ng-model="search.content" ng-model-options="{ debounce: 500 }" placeholder="Search for articles...">
+				<p>{{message}}</p>
+			</div>
+		</div>
+	</header>
+	<section class="no_results" ng-if="articles.length == 0">
+		<div class="container">
+			<div class="content">
+				<div class="no_results-message">
+					<span>We couldn't find any articles for:</span> {{search.content}}
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="container">
+			<div class="content">
+				<h4>Developed with ❤ by Luciene Santos</h4>
+			</div>
+		</div>
+	</footer>
 </div>
-
 

@@ -1,0 +1,124 @@
+body {
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #565867;
+  font-weight: 400;
+  background: #F3F5FC;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0;
+  height: 100%;
+  min-height: 100%;	
+}
+
+.search-content {
+	background-color: #7e61ea;
+	height: 258px;
+	color: white;
+	padding: 35px 0;
+	flex: none;
+	position: relative;
+	z-index: 10;
+	background-size: cover;
+	box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2);
+}
+
+.search-content .headline {
+	font-size: 28px;
+	font-weight: 300;
+	margin: 0 0 25px;
+	color: inherit;
+	float: left;
+}
+
+.content {
+	max-width: 100%;
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.content input {
+	width: 100%;
+	padding: 20px 59px 19px 17px;
+	background: rgba(255,255,255,0.2);
+	border: none;
+	outline: none;
+	color: rgba(255,255,255,0.7);
+	font-size: 18px;
+	border-radius: 4px;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.03);
+	-webkit-transition: background .4s, box-shadow .2s;
+	transition: background .4s, box-shadow .2s;
+}
+
+.content input:hover {
+	background: rgba(255,255,255,0.27);
+	box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+}
+
+.content input:focus {
+	background: white;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+	color: #b3b3b3;
+}
+
+input::-webkit-input-placeholder {
+    color: white;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: #b3b3b3;
+}
+
+section.no_results {
+	display: block;
+	opacity: 1;
+	-webkit-transition: opacity .2s linear;
+	transition: opacity .2s linear;
+	padding-top: 26px;
+	height: 120px;
+	background-color: #ebeef1;
+}
+
+section.no_results span {
+	color: #8897a4;
+}
+
+.no_results-message {
+	padding: 16px 0 11px 0;
+	margin: 6px 0;
+	color: #3a3c4c;
+	font-weight: 600;
+	letter-spacing: .02em;
+	font-size: 18px;
+}
+
+.analysis-link {
+	color: white;
+}
+
+.analysis-link:hover {
+	color: white;
+	text-decoration: none;
+}
+
+footer {
+	margin-top: 35px;
+	padding: 20px 0;
+	text-align: center;
+	font-size: 13px;
+	-webkit-box-flex: 0;
+	-ms-flex: none;
+	flex: none;
+	background: #ffffff;
+}

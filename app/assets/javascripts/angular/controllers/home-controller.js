@@ -30,7 +30,7 @@ app.controller('HomeCtrl', ['$scope', '$http', function($scope, $http) {
       method: "GET",
       params: {content: $scope.search.content, request_uuid: $scope.search.request_uuid}
     }).success(function(data) {
-      $scope.message = data.message;
+      $scope.articles = data.data;
     }).error(function(data) {
       console.log(data);
     });
