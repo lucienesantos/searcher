@@ -147,3 +147,24 @@ footer {
 	display: block;
 	margin-top: 25px;
 }
+
+.headline a {
+	color: inherit;
+	text-decoration: inherit;
+	cursor: pointer;
+}
+
+.headline a:focus {
+	color: inherit;
+	text-decoration: inherit;
+}
+
+.headline a:visited {
+	color: inherit;
+	text-decoration: inherit;
+}
+
+.headline a:hover {
+	color: inherit;
+	text-decoration: inherit;
+}

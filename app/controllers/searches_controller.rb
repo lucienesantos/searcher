@@ -9,4 +9,9 @@ class SearchesController < ApplicationController
     @searches = Search.order_by_count
   end
 
+  def destroy_all
+    Search.destroy_all
+    redirect_to :action => "index"
+  end
+
 end

@@ -32,4 +32,20 @@ RSpec.describe SearchesController, type: :controller do
 
   end
 
+  describe "DELETE #destroy_all" do
+
+    it "should delete all" do
+      allow(Search).to receive(:destroy_all)
+      delete :destroy_all
+      expect(Search).to have_received(:destroy_all)
+    end
+
+    it "should return index" do
+      allow(Search).to receive(:destroy_all)
+      delete :destroy_all
+      expect(subject).to redirect_to action: :index
+    end
+
+  end
+
 end
