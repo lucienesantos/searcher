@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require helper
 //= require angular/app
+//= require angular/controllers/home-controller
 //= require_tree .
