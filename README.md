@@ -2,7 +2,7 @@
 
 This is a realtime search box, where users search articles. Every search is saved for a future analyse and trend.
 
-## How to run:
+## How to run
 
 Install required gems 
 
