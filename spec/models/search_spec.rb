@@ -37,7 +37,6 @@ RSpec.describe Search, type: :model do
       end
 
       it "should update the log this search" do
-
         Search.log(request_uuid, content_update, request_ip)
         search = Search.find_by_request_uuid(request_uuid)
         expect(search.content).to eq("how do I start project")
