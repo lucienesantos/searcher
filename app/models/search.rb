@@ -4,7 +4,7 @@ class Search < ApplicationRecord
   validates :request_uuid, :content, :request_ip, presence: true
 
 
-  scope :order_by_count, -> { Search.group('content').order('count_id desc').count('id') }
+  scope :order_by_count, -> { Search.group('lower(content)').order('count_id desc').count('id') }
 
 
   def self.log(request_uuid, content, request_ip)

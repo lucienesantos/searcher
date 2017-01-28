@@ -49,10 +49,11 @@ RSpec.describe Search, type: :model do
     before do
       FactoryGirl.create_list(:search, 50, content: "How do I signup")
       FactoryGirl.create_list(:search, 25, content: "How do I cancel my subscription")
+      FactoryGirl.create_list(:search, 30, content: "how do i CANCEL MY SUBSCRIPTION")
       FactoryGirl.create_list(:search, 100, content: "How do I find my lost articles")
     end
 
-    let(:expected_result) { {"How do I find my lost articles"=>100, "How do I signup"=>50, "How do I cancel my subscription"=>25} }
+    let(:expected_result) { {"how do i find my lost articles"=>100, "how do i cancel my subscription"=>55, "how do i signup"=>50} }
 
     it "should return the searchs group by content and order by count"  do
       searches = Search.order_by_count
