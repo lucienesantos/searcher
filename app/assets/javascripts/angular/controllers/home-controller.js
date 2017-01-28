@@ -17,6 +17,8 @@ app.controller('HomeCtrl', ['$scope', '$http', function($scope, $http) {
   };
 
   $scope.proccessContentChange = function() {
+    // The user may type something complete and find nothing. After this, he may clear the input and try a new search.
+    // This should change the request uuid for logging as new search
     if ($scope.search.content == "") {
       $scope.search.request_uuid = generateUUID();
     } else {
